@@ -1,0 +1,25 @@
+import java.util.Arrays;
+
+public class SecondAndThirdLargestSum {
+    public static void main(String[] args) {
+        int[] values = {10, 51, 53, 39, 47, 44, 21};
+        int sum = findSumOfSecondAndThirdLargest(values);
+        System.out.println("Sum of 2nd and 3rd largest numbers: " + sum);
+    }
+
+    public static int findSumOfSecondAndThirdLargest(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        // Check if array has at least 2 elements
+        if (n < 2) {
+            System.out.println("Array should have at least 2 elements");
+            return 0;
+        }
+        // If array has only 2 elements, return their sum
+        if (n == 2) {
+            return arr[0] + arr[1];
+        }
+        // If array has more than 2 elements
+        return arr[n - 2] + arr[n - 3];
+    }
+}
